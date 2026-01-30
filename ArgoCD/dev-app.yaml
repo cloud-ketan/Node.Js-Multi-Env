@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/cloud-ketan/Node.Js-Multi-Env.git'
     targetRevision: main
-    path: 'helm/nodeapp'
+    path: 'Helm-Project/node-app'
     helm:
       valueFiles:
         - values-dev.yaml
