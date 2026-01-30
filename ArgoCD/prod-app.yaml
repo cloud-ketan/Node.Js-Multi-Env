@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodeapp-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/cloud-ketan/Node.Js-Multi-Env.git'
+    targetRevision: main
+    path: 'helm/nodeapp'
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: nodeapp-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
